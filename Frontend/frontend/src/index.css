@@ -11,6 +11,11 @@
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
+  /* New interactive tokens */
+  --primary: #0f172a;
+  --btn-gradient: linear-gradient(90deg, #7c3aed 0%, #06b6d4 100%);
+  --surface-glow: rgba(124, 58, 237, 0.12);
+
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
@@ -27,6 +32,21 @@
 
   @media (max-width: 1024px) {
     font-size: 16px;
+  }
+}
+
+/* Global micro-interactions */
+* {
+  --interactive-duration: 180ms;
+  transition: background-color var(--interactive-duration) ease, color var(--interactive-duration) ease,
+    box-shadow var(--interactive-duration) ease, transform 120ms ease;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
   }
 }
 

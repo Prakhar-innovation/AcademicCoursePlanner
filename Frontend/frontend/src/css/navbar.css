@@ -59,9 +59,37 @@ body {
   transition: 0.3s;
 }
 
-.nav-links a:hover {
+/* Interactive nav link underline + subtle motion */
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  position: relative;
+  padding: 6px 4px;
+}
 
-  color: #38bdf8;
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 3px;
+  background: var(--btn-gradient, #38bdf8);
+  border-radius: 3px;
+  transform: translateX(-50%);
+  transition: width 200ms ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus::after {
+  width: 60%;
+}
+
+.nav-links a:hover {
+  color: #e6eef6;
+  transform: translateY(-2px);
 }
 
 /* USERNAME */
@@ -99,6 +127,44 @@ body {
 .logout-btn:hover {
 
   background-color: darkred;
+}
+
+/* Primary button styling used across app */
+.btn {
+  background: var(--btn-gradient);
+  color: white;
+  border: 0;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.995);
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  background: var(--surface-glow);
+  opacity: 0.9;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: width 260ms ease, height 260ms ease, opacity 260ms ease;
+}
+
+.btn:hover::after {
+  width: 300px;
+  height: 300px;
+  opacity: 1;
 }
 
 /* MAIN CONTAINER */
