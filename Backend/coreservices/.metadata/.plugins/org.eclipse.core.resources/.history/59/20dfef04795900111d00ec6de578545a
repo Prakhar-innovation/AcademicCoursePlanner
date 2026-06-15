@@ -1,0 +1,47 @@
+package com.klu.models;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "prerequisites")
+public class Prerequisite {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long prerequisiteId;
+
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private Course course;
+
+    @ManyToOne
+    @JoinColumn(name = "prerequisite_course_id")
+    private Course prerequisiteCourse;
+
+    public Prerequisite() {
+    }
+
+    public Long getPrerequisiteId() {
+        return prerequisiteId;
+    }
+
+    public void setPrerequisiteId(Long prerequisiteId) {
+        this.prerequisiteId = prerequisiteId;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public Course getPrerequisiteCourse() {
+        return prerequisiteCourse;
+    }
+
+    public void setPrerequisiteCourse(Course prerequisiteCourse) {
+        this.prerequisiteCourse = prerequisiteCourse;
+    }
+}

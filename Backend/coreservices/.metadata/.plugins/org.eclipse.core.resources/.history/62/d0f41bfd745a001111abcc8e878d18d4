@@ -1,0 +1,24 @@
+package com.klu.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.klu.models.Enrollment;
+import com.klu.repository.EnrollmentRepository;
+
+@Service
+public class EnrollmentService {
+
+    @Autowired
+    private EnrollmentRepository enrollmentRepository;
+
+    public Enrollment addEnrollment(Enrollment enrollment) {
+        return enrollmentRepository.save(enrollment);
+    }
+
+    public List<Enrollment> getAllEnrollments() {
+        return enrollmentRepository.findAll();
+    }
+}

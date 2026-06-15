@@ -1,0 +1,21 @@
+{
+  "name": "taskservice",
+  "version": "1.0.0",
+  "description": "ACP Task Service",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node main.js",
+    "dev": "nodemon main.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.15.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
