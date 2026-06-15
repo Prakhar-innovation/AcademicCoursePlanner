@@ -82,7 +82,8 @@ public class AuthController {
 
             String token =
                     JwtUtil.generateToken(
-                            username
+                            username,
+                            user.getRole()
                     );
 
             Map<String, String> response =
