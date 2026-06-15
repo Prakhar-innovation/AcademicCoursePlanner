@@ -1,7 +1,7 @@
 import { useEffect, useState }
 from "react";
 
-import axios from "axios";
+import apiClient from "../../api/apiClient";
 
 import "./Student.css";
 
@@ -16,10 +16,10 @@ function StudentDashboard() {
 
   useEffect(() => {
 
-    axios
+    apiClient
 
       .get(
-        "http://localhost:8081/enrollments/all"
+        "/enrollments/all"
       )
 
       .then((response) => {

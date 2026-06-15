@@ -44,8 +44,7 @@ function Navbar() {
         {/* ADMIN LINKS */}
 
         {
-          role?.toUpperCase()
-          === "ADMIN" && (
+          ["ADMIN", "FACULTY"].includes(role?.toUpperCase()) && (
 
           <>
 
@@ -67,6 +66,10 @@ function Navbar() {
 
             <Link to="/prerequisites">
               Prerequisites
+            </Link>
+
+            <Link to="/tasks-dashboard">
+              Tasks
             </Link>
 
           </>
@@ -102,6 +105,12 @@ function Navbar() {
               to="/student-profile"
             >
               Profile
+            </Link>
+
+            <Link
+              to="/tasks"
+            >
+              Tasks
             </Link>
 
           </>

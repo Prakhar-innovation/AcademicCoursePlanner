@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import axios from "axios";
+import apiClient from "../api/apiClient";
 
 import { useNavigate } from "react-router-dom";
 
@@ -25,10 +25,8 @@ function Signup() {
 
     try {
 
-      const response = await axios.post(
-
-        "http://localhost:8081/auth/signup",
-
+      const response = await apiClient.post(
+        "/auth/signup",
         {
           username,
           password,
@@ -91,7 +89,11 @@ function Signup() {
           </option>
 
           <option value="ADMIN">
-            Faculty/Admin
+            Admin
+          </option>
+
+          <option value="FACULTY">
+            Faculty
           </option>
 
         </select>

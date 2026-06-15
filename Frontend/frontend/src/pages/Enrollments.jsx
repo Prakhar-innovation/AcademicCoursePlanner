@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import axios from "axios";
+import apiClient from "../api/apiClient";
 
 function Enrollments() {
 
@@ -54,8 +54,8 @@ function Enrollments() {
     try {
 
       const response =
-        await axios.get(
-          "http://localhost:8000/enrollments/all"
+        await apiClient.get(
+          "/enrollments/all"
         );
 
       setEnrollments(
@@ -75,8 +75,8 @@ function Enrollments() {
     try {
 
       const response =
-        await axios.get(
-          "http://localhost:8000/students/all"
+        await apiClient.get(
+          "/students/all"
         );
 
       console.log(
@@ -101,8 +101,8 @@ function Enrollments() {
     try {
 
       const response =
-        await axios.get(
-          "http://localhost:8000/courses/all"
+        await apiClient.get(
+          "/courses/all"
         );
 
       console.log(
@@ -165,9 +165,9 @@ function Enrollments() {
 
     try {
 
-      await axios.post(
+      await apiClient.post(
 
-        "http://localhost:8000/enrollments/add",
+        "/enrollments/add",
 
         payload
       );

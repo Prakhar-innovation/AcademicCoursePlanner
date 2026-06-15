@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import axios from "axios";
+import apiClient from "../api/apiClient";
 
 function Students() {
 
@@ -39,8 +39,8 @@ function Students() {
     try {
 
       const response =
-        await axios.get(
-          "http://localhost:8000/students/all"
+        await apiClient.get(
+          "/students/all"
         );
 
       console.log(response.data);
@@ -85,9 +85,9 @@ function Students() {
 
     try {
 
-      await axios.post(
+      await apiClient.post(
 
-        "http://localhost:8000/students/add",
+        "/students/add",
 
         studentData
       );

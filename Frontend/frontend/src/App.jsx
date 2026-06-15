@@ -18,6 +18,11 @@ import Students from "./pages/Students";
 import Courses from "./pages/Courses";
 import Enrollments from "./pages/Enrollments";
 import Prerequisites from "./pages/Prerequisites";
+import TaskDashboard from "./pages/tasks/TaskDashboard";
+import AddTask from "./pages/tasks/AddTask";
+import ViewTasks from "./pages/tasks/ViewTasks";
+import UpdateTask from "./pages/tasks/UpdateTask";
+import TaskDetails from "./pages/tasks/TaskDetails";
 
 // STUDENT PAGES
 import StudentDashboard
@@ -81,6 +86,31 @@ function App() {
           <Route
             path="/prerequisites"
             element={<Prerequisites />}
+          />
+
+          <Route
+            path="/tasks-dashboard"
+            element={<TaskDashboard />}
+          />
+
+          <Route
+            path="/tasks/add"
+            element={<AddTask />}
+          />
+
+          <Route
+            path="/tasks"
+            element={<ViewTasks />}
+          />
+
+          <Route
+            path="/tasks/update/:id"
+            element={<UpdateTask />}
+          />
+
+          <Route
+            path="/tasks/:id"
+            element={<TaskDetails />}
           />
 
           {/* STUDENT ROUTES */}

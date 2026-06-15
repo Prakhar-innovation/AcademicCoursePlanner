@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import axios from "axios";
+import apiClient from "../../api/apiClient";
 
 function StudentCourses() {
 
@@ -9,10 +9,10 @@ function StudentCourses() {
 
   useEffect(() => {
 
-    axios
+    apiClient
 
       .get(
-        "http://localhost:8081/courses/all"
+        "/courses/all"
       )
 
       .then((response) => {

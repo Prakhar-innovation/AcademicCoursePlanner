@@ -1,7 +1,7 @@
 // src/pages/Prerequisites.jsx
 
 import { useEffect, useState } from "react";
-import axios from "axios";
+import apiClient from "../api/apiClient";
 
 function Prerequisites() {
 
@@ -25,9 +25,7 @@ function Prerequisites() {
 
     try {
 
-      const response = await axios.get(
-        "http://localhost:8000/prerequisites/all"
-      );
+      const response = await apiClient.get("/prerequisites/all");
 
       setPrerequisites(response.data);
 
@@ -38,9 +36,7 @@ function Prerequisites() {
 
   const fetchCourses = async () => {
 
-    const response = await axios.get(
-      "http://localhost:8000/courses/all"
-    );
+    const response = await apiClient.get("/courses/all");
 
     setCourses(response.data);
   };
@@ -68,10 +64,7 @@ function Prerequisites() {
 
     try {
 
-      await axios.post(
-        "http://localhost:8000/prerequisites/add",
-        payload
-      );
+      await apiClient.post("/prerequisites/add", payload);
 
       alert("Prerequisite Added Successfully");
 

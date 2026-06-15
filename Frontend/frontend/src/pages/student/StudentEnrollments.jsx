@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import axios from "axios";
+import apiClient from "../../api/apiClient";
 
 function StudentEnrollments() {
 
@@ -9,10 +9,10 @@ function StudentEnrollments() {
 
   useEffect(() => {
 
-    axios
+    apiClient
 
       .get(
-        "http://localhost:8081/enrollments/all"
+        "/enrollments/all"
       )
 
       .then((response) => {

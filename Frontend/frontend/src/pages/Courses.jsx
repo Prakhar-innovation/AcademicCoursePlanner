@@ -1,7 +1,7 @@
 // src/pages/Courses.jsx
 
 import { useEffect, useState } from "react";
-import axios from "axios";
+import apiClient from "../api/apiClient";
 
 function Courses() {
 
@@ -22,9 +22,7 @@ function Courses() {
 
     try {
 
-      const response = await axios.get(
-        "http://localhost:8000/courses/all"
-      );
+      const response = await apiClient.get("/courses/all");
 
       setCourses(response.data);
 
@@ -45,10 +43,7 @@ function Courses() {
 
     try {
 
-      await axios.post(
-        "http://localhost:8000/courses/add",
-        courseData
-      );
+      await apiClient.post("/courses/add", courseData);
 
       alert("Course Added Successfully");
 

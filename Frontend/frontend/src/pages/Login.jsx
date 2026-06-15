@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import axios from "axios";
+import apiClient from "../api/apiClient";
 
 import { useNavigate } from "react-router-dom";
 
@@ -24,10 +24,8 @@ function Login() {
 
     try {
 
-      const response = await axios.post(
-
-        "http://localhost:8081/auth/login",
-
+      const response = await apiClient.post(
+        "/auth/login",
         {
           username,
           password
@@ -55,15 +53,13 @@ function Login() {
       alert("Login Successful");
 
       // ROLE BASED REDIRECT
-      if (
-        response.data.role === "STUDENT"
-      ) {
+      if (response.data.role === "STUDENT") {
 
         navigate("/student-dashboard");
 
       } else {
 
-        navigate("/");
+        navigate("/tasks-dashboard");
       }
 
     } catch (error) {
